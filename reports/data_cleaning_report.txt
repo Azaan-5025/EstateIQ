@@ -1,0 +1,93 @@
+================================================================================
+ESTATEIQ - DATA CLEANING & VALIDATION AUDIT REPORT
+================================================================================
+Raw Dataset Source     : C:/Users/Syed Azaan Hussain/Desktop/ESTATEIQ/data/raw/india_housing_prices.csv
+Processed Output Target: C:/Users/Syed Azaan Hussain/Desktop/ESTATEIQ/data/processed/india_housing_cleaned.csv
+Original Dimensions    : 250,000 rows x 23 columns
+
+--------------------------------------------------------------------------------
+TASK 1: FLOOR VALIDATION AUDIT & REMEDIATION
+--------------------------------------------------------------------------------
+Records identified where Floor_No > Total_Floors: 116,304 (46.52%)
+Ground-floor records (Floor_No == 0) before cleaning: 8,203
+Ground-floor records flagged as inconsistent        : 0 (Expected: 0)
+Missing values introduced in Floor_No column        : 116,304
+Valid Floor_No values retained in cleaned dataset   : 133,696
+Ground-floor records (Floor_No == 0) after cleaning : 8,203 (Strictly preserved)
+Note on Machine Learning Modeling Usage:
+  'Is_Floor_Inconsistent' is retained strictly for data governance/auditing and must NOT
+  be used as a default predictive feature in classification or regression models.
+
+--------------------------------------------------------------------------------
+TASK 2: PRICE PER SQUARE FOOT (INR) PRECISION RECALCULATION
+--------------------------------------------------------------------------------
+Recalculated Price_per_SqFt_INR Summary:
+  Minimum value : INR 202.25 / SqFt
+  Median value  : INR 9,244.75 / SqFt
+  Mean value    : INR 13,058.28 / SqFt
+  Maximum value : INR 99,182.00 / SqFt
+  Non-positive records count (<= 0): 0 (Strictly verified)
+  Zero values count (== 0)         : 0 (Completely eliminated)
+
+Audit Trace Note on Original Price_per_SqFt:
+  Original 'Price_per_SqFt' (Lakhs/SqFt rounded to 2 decimals, having 2,534 zero values)
+  is preserved in the cleaned dataset for audit traceability, but is formally marked
+  as SUPERSEDED by 'Price_per_SqFt_INR' for all future analytical and modeling tasks.
+
+--------------------------------------------------------------------------------
+TASK 3: PROPERTY AGE INTEGRITY VALIDATION
+--------------------------------------------------------------------------------
+Validation Formula: Age_of_Property == 2025 - Year_Built
+Mismatches detected: 0 / 250,000
+Min Age: 2 years | Max Age: 35 years
+Min Year_Built: 1990 | Max Year_Built: 2023
+Collinearity & Modeling Directive:
+  Both 'Age_of_Property' and 'Year_Built' are preserved in the processed dataset.
+  Because they possess a perfect deterministic linear relationship (corr = -1.0),
+  only ONE of these two features (recommended: 'Age_of_Property') must be selected
+  during feature preparation to prevent collinearity in linear models and split dilution in trees.
+  Property age has NOT been modified using the current calendar year to maintain dataset benchmark integrity.
+
+--------------------------------------------------------------------------------
+TASK 4: AMENITIES PARSING & COMPOSITE VALIDATION
+--------------------------------------------------------------------------------
+Amenity Feature Target Token  Positive Count  Penetration Rate (%)
+        Has_Gym          Gym          149960                 59.98
+       Has_Pool         Pool          150096                 60.04
+     Has_Garden       Garden          150177                 60.07
+ Has_Playground   Playground          149780                 59.91
+  Has_Clubhouse    Clubhouse          150059                 60.02
+
+Total_Amenities_Count Distribution (0 to 5):
+                       Count  Percentage (%)
+Total_Amenities_Count                       
+1                      50106           20.04
+2                      49806           19.92
+3                      49862           19.94
+4                      50362           20.14
+5                      49864           19.95
+
+Sum Check: Total_Amenities_Count strictly matches sum of atomic indicators: True
+
+--------------------------------------------------------------------------------
+TASK 5: GENERAL VALIDATION & INTEGRITY CHECKS
+--------------------------------------------------------------------------------
+1. Row Count Preservation: Exactly 250,000 rows preserved (100.0%).
+2. Core Numerical Invariance: 'Price_in_Lakhs', 'Size_in_SqFt', and 'ID' are 100% unchanged.
+3. Identifier Integrity: 0 duplicate IDs, 0 null IDs (Unbroken sequence 1 to 250,000).
+4. Missing Values Audit across Cleaned Dataset:
+   [VERIFIED] Only 'Floor_No' contains missing values (116,304 rows, 46.52%).
+   All other 30 columns have 0 missing values (100% complete).
+5. Categorical Consistency: 0 whitespace issues, 0 unexpected categories across all 12 categoricals.
+6. Dimensions Summary:
+   Original dimensions: 250,000 rows x 23 columns
+   Cleaned dimensions : 250,000 rows x 31 columns
+   Total columns added: 8 ['Is_Floor_Inconsistent', 'Price_per_SqFt_INR', 'Has_Gym', 'Has_Pool', 'Has_Garden', 'Has_Playground', 'Has_Clubhouse', 'Total_Amenities_Count']
+
+--------------------------------------------------------------------------------
+TASK 6: SAVING CLEANED DATASET & AUDIT REPORT
+--------------------------------------------------------------------------------
+Cleaned dataset saved successfully: C:/Users/Syed Azaan Hussain/Desktop/ESTATEIQ/data/processed/india_housing_cleaned.csv (47.19 MB)
+================================================================================
+PHASE 2.1 DATA CLEANING & VALIDATION PIPELINE COMPLETED SUCCESSFULLY.
+================================================================================

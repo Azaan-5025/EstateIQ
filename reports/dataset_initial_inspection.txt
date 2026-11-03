@@ -1,0 +1,258 @@
+================================================================================
+ESTATEIQ — RAW DATASET INITIAL INSPECTION REPORT
+================================================================================
+File Path: C:/Users/Syed Azaan Hussain/Desktop/ESTATEIQ/data/raw/india_housing_prices.csv
+File Size on Disk: 39.21 MB
+
+--------------------------------------------------------------------------------
+1. DATASET DIMENSIONS & MEMORY USAGE
+--------------------------------------------------------------------------------
+Total Records (Rows)   : 250,000
+Total Attributes (Cols): 23
+Total Memory Usage     : 69.72 MB (73,110,868 bytes)
+
+--------------------------------------------------------------------------------
+2. COLUMN ROSTER & DATA TYPES
+--------------------------------------------------------------------------------
+ Index                    Column Name Data Type  Non-Null Count  Null Count
+     1                             ID     int64          250000           0
+     2                          State       str          250000           0
+     3                           City       str          250000           0
+     4                       Locality       str          250000           0
+     5                  Property_Type       str          250000           0
+     6                            BHK     int64          250000           0
+     7                   Size_in_SqFt     int64          250000           0
+     8                 Price_in_Lakhs   float64          250000           0
+     9                 Price_per_SqFt   float64          250000           0
+    10                     Year_Built     int64          250000           0
+    11               Furnished_Status       str          250000           0
+    12                       Floor_No     int64          250000           0
+    13                   Total_Floors     int64          250000           0
+    14                Age_of_Property     int64          250000           0
+    15                 Nearby_Schools     int64          250000           0
+    16               Nearby_Hospitals     int64          250000           0
+    17 Public_Transport_Accessibility       str          250000           0
+    18                  Parking_Space       str          250000           0
+    19                       Security       str          250000           0
+    20                      Amenities       str          250000           0
+    21                         Facing       str          250000           0
+    22                     Owner_Type       str          250000           0
+    23            Availability_Status       str          250000           0
+
+--------------------------------------------------------------------------------
+3. MISSING VALUE ANALYSIS
+--------------------------------------------------------------------------------
+Total Missing Cells Across Dataset: 0 (0.0000% of all cells)
+
+                   Column Name  Missing Count  Missing Percentage (%)
+                            ID              0                     0.0
+                  Total_Floors              0                     0.0
+                    Owner_Type              0                     0.0
+                        Facing              0                     0.0
+                     Amenities              0                     0.0
+                      Security              0                     0.0
+                 Parking_Space              0                     0.0
+Public_Transport_Accessibility              0                     0.0
+              Nearby_Hospitals              0                     0.0
+                Nearby_Schools              0                     0.0
+               Age_of_Property              0                     0.0
+                      Floor_No              0                     0.0
+                         State              0                     0.0
+              Furnished_Status              0                     0.0
+                    Year_Built              0                     0.0
+                Price_per_SqFt              0                     0.0
+                Price_in_Lakhs              0                     0.0
+                  Size_in_SqFt              0                     0.0
+                           BHK              0                     0.0
+                 Property_Type              0                     0.0
+                      Locality              0                     0.0
+                          City              0                     0.0
+           Availability_Status              0                     0.0
+
+--------------------------------------------------------------------------------
+4. DUPLICATE RECORDS ANALYSIS
+--------------------------------------------------------------------------------
+Exact Duplicate Rows (across all columns)          : 0
+Duplicate Feature Profiles (ignoring 'ID' column)  : 0
+
+--------------------------------------------------------------------------------
+5. CATEGORICAL COLUMNS ANALYSIS
+--------------------------------------------------------------------------------
+Total Categorical Columns Identified: 12
+
+                   Column Name  Unique Count                                                                                                                                                                                        Sample Distinct Values
+                         State            20                                                                                                                                                  Tamil Nadu, Maharashtra, Punjab, Rajasthan, West Bengal, ...
+                          City            42                                                                                                                                                                 Chennai, Pune, Ludhiana, Jodhpur, Jaipur, ...
+                      Locality           500                                                                                                                                      Locality_84, Locality_490, Locality_167, Locality_393, Locality_466, ...
+                 Property_Type             3                                                                                                                                                                           Apartment, Independent House, Villa
+              Furnished_Status             3                                                                                                                                                                        Furnished, Unfurnished, Semi-furnished
+Public_Transport_Accessibility             3                                                                                                                                                                                             High, Low, Medium
+                 Parking_Space             2                                                                                                                                                                                                       No, Yes
+                      Security             2                                                                                                                                                                                                       No, Yes
+                     Amenities           325 Playground, Gym, Garden, Pool, Clubhouse, Playground, Clubhouse, Pool, Gym, Garden, Clubhouse, Pool, Playground, Gym, Playground, Clubhouse, Gym, Pool, Garden, Playground, Garden, Gym, Pool, Clubhouse, ...
+                        Facing             4                                                                                                                                                                                      West, North, South, East
+                    Owner_Type             3                                                                                                                                                                                        Owner, Builder, Broker
+           Availability_Status             2                                                                                                                                                                             Ready_to_Move, Under_Construction
+
+Detailed Distribution for Low-Cardinality Categoricals (<= 15 unique values):
+
+--- Distribution for [Property_Type] ---
+                   Count  Percentage (%)
+Property_Type                           
+Villa              83744           33.50
+Independent House  83300           33.32
+Apartment          82956           33.18
+
+--- Distribution for [Furnished_Status] ---
+                  Count  Percentage (%)
+Furnished_Status                       
+Unfurnished       83408           33.36
+Semi-furnished    83374           33.35
+Furnished         83218           33.29
+
+--- Distribution for [Public_Transport_Accessibility] ---
+                                Count  Percentage (%)
+Public_Transport_Accessibility                       
+High                            83705           33.48
+Low                             83287           33.31
+Medium                          83008           33.20
+
+--- Distribution for [Parking_Space] ---
+                Count  Percentage (%)
+Parking_Space                        
+No             125456           50.18
+Yes            124544           49.82
+
+--- Distribution for [Security] ---
+           Count  Percentage (%)
+Security                        
+Yes       125233           50.09
+No        124767           49.91
+
+--- Distribution for [Facing] ---
+        Count  Percentage (%)
+Facing                       
+West    62757           25.10
+North   62637           25.05
+South   62337           24.93
+East    62269           24.91
+
+--- Distribution for [Owner_Type] ---
+            Count  Percentage (%)
+Owner_Type                       
+Broker      83479           33.39
+Owner       83268           33.31
+Builder     83253           33.30
+
+--- Distribution for [Availability_Status] ---
+                      Count  Percentage (%)
+Availability_Status                        
+Under_Construction   125035           50.01
+Ready_to_Move        124965           49.99
+
+--------------------------------------------------------------------------------
+6. NUMERICAL COLUMNS STATISTICAL SUMMARY
+--------------------------------------------------------------------------------
+Total Numerical Columns Identified: 11
+
+                     count           mean           std     min       25%        50%        75%        max        IQR
+ID                250000.0  125000.500000  72168.927986     1.0  62500.75  125000.50  187500.25  250000.00  124999.50
+BHK               250000.0       2.999396      1.415521     1.0      2.00       3.00       4.00       5.00       2.00
+Size_in_SqFt      250000.0    2749.813216   1300.606954   500.0   1623.00    2747.00    3874.00    5000.00    2251.00
+Price_in_Lakhs    250000.0     254.586854    141.349921    10.0    132.55     253.87     376.88     500.00     244.33
+Price_per_SqFt    250000.0       0.130597      0.130747     0.0      0.05       0.09       0.16       0.99       0.11
+Year_Built        250000.0    2006.520012      9.808575  1990.0   1998.00    2007.00    2015.00    2023.00      17.00
+Floor_No          250000.0      14.966800      8.948047     0.0      7.00      15.00      23.00      30.00      16.00
+Total_Floors      250000.0      15.503004      8.671618     1.0      8.00      15.00      23.00      30.00      15.00
+Age_of_Property   250000.0      18.479988      9.808575     2.0     10.00      18.00      27.00      35.00      17.00
+Nearby_Schools    250000.0       5.499860      2.878639     1.0      3.00       5.00       8.00      10.00       5.00
+Nearby_Hospitals  250000.0       5.498016      2.871860     1.0      3.00       5.00       8.00      10.00       5.00
+
+--------------------------------------------------------------------------------
+7. MINIMUM AND MAXIMUM VALUES OF IMPORTANT NUMERICAL COLUMNS
+--------------------------------------------------------------------------------
+Numerical Column  Minimum Value  Median (50%)  Maximum Value        Mean    Std Dev
+              ID            1.0     125000.50      250000.00 125000.5000 72168.9280
+             BHK            1.0          3.00           5.00      2.9994     1.4155
+    Size_in_SqFt          500.0       2747.00        5000.00   2749.8132  1300.6070
+  Price_in_Lakhs           10.0        253.87         500.00    254.5869   141.3499
+  Price_per_SqFt            0.0          0.09           0.99      0.1306     0.1307
+      Year_Built         1990.0       2007.00        2023.00   2006.5200     9.8086
+        Floor_No            0.0         15.00          30.00     14.9668     8.9480
+    Total_Floors            1.0         15.00          30.00     15.5030     8.6716
+ Age_of_Property            2.0         18.00          35.00     18.4800     9.8086
+  Nearby_Schools            1.0          5.00          10.00      5.4999     2.8786
+Nearby_Hospitals            1.0          5.00          10.00      5.4980     2.8719
+
+--------------------------------------------------------------------------------
+8. SAMPLE RECORDS
+--------------------------------------------------------------------------------
+>>> FIRST 10 RECORDS:
+   ID         State        City      Locality      Property_Type  BHK  Size_in_SqFt  Price_in_Lakhs  Price_per_SqFt  Year_Built Furnished_Status  Floor_No  Total_Floors  Age_of_Property  Nearby_Schools  Nearby_Hospitals Public_Transport_Accessibility Parking_Space Security                                 Amenities Facing Owner_Type Availability_Status
+0   1    Tamil Nadu     Chennai   Locality_84          Apartment    1          4740          489.76            0.10        1990        Furnished        22             1               35              10                 3                           High            No       No  Playground, Gym, Garden, Pool, Clubhouse   West      Owner       Ready_to_Move
+1   2   Maharashtra        Pune  Locality_490  Independent House    3          2364          195.52            0.08        2008      Unfurnished        21            20               17               8                 1                            Low            No      Yes  Playground, Clubhouse, Pool, Gym, Garden  North    Builder  Under_Construction
+2   3        Punjab    Ludhiana  Locality_167          Apartment    2          3642          183.79            0.05        1997   Semi-furnished        19            27               28               9                 8                            Low           Yes       No          Clubhouse, Pool, Playground, Gym  South     Broker       Ready_to_Move
+3   4     Rajasthan     Jodhpur  Locality_393  Independent House    2          2741          300.29            0.11        1991        Furnished        21            26               34               5                 7                           High           Yes      Yes  Playground, Clubhouse, Gym, Pool, Garden  North    Builder       Ready_to_Move
+4   5     Rajasthan      Jaipur  Locality_466              Villa    4          4823          182.90            0.04        2002   Semi-furnished         3             2               23               4                 9                            Low            No      Yes  Playground, Garden, Gym, Pool, Clubhouse   East    Builder       Ready_to_Move
+5   6   West Bengal    Durgapur  Locality_246          Apartment    4          3500          135.28            0.04        2020   Semi-furnished        27             1                5               7                 7                            Low           Yes      Yes                     Playground, Clubhouse   West     Broker       Ready_to_Move
+6   7    Tamil Nadu  Coimbatore  Locality_254  Independent House    3          4826          318.12            0.07        2016        Furnished        16             5                9               3                 6                           High            No      Yes             Clubhouse, Garden, Playground  North    Builder  Under_Construction
+7   8  Chhattisgarh    Bilaspur  Locality_490  Independent House    5          4252          141.39            0.03        2021      Unfurnished        24             4                4              10                10                           High           Yes      Yes          Gym, Pool, Clubhouse, Playground  North    Builder  Under_Construction
+8   9         Delhi   New Delhi  Locality_232              Villa    4          2678          189.16            0.07        2003   Semi-furnished        23            16               22               7                 5                            Low            No      Yes             Garden, Clubhouse, Playground  South     Broker  Under_Construction
+9  10     Jharkhand      Ranchi  Locality_122              Villa    2          1393          187.42            0.13        2011      Unfurnished         6            13               14               3                 3                           High           Yes       No        Clubhouse, Playground, Garden, Gym   East      Owner       Ready_to_Move
+
+>>> LAST 5 RECORDS:
+            ID       State       City      Locality      Property_Type  BHK  Size_in_SqFt  Price_in_Lakhs  Price_per_SqFt  Year_Built Furnished_Status  Floor_No  Total_Floors  Age_of_Property  Nearby_Schools  Nearby_Hospitals Public_Transport_Accessibility Parking_Space Security                                 Amenities Facing Owner_Type Availability_Status
+249995  249996     Gujarat  Ahmedabad  Locality_187  Independent House    5          1995          274.75            0.14        1995        Furnished        19             7               30               8                 6                            Low            No       No  Playground, Garden, Gym, Clubhouse, Pool   East     Broker  Under_Construction
+249996  249997  Tamil Nadu    Chennai  Locality_348          Apartment    1          2293           13.40            0.01        2013   Semi-furnished        15            25               12               8                10                            Low            No       No                                Playground  South     Broker       Ready_to_Move
+249997  249998   Telangana   Warangal  Locality_225              Villa    4          2910          236.94            0.08        2003        Furnished        21            30               22              10                 4                           High           Yes      Yes                                Playground  South    Builder  Under_Construction
+249998  249999      Odisha    Cuttack  Locality_138              Villa    1          1149          141.66            0.12        2007      Unfurnished        14            11               18               3                 7                            Low           Yes      Yes                     Playground, Gym, Pool  South      Owner       Ready_to_Move
+249999  250000     Haryana    Gurgaon  Locality_268  Independent House    3          4313          199.69            0.05        1990   Semi-furnished        22            28               35              10                 6                         Medium            No       No                               Gym, Garden  South      Owner  Under_Construction
+
+================================================================================
+9. INVESTIGATION OF PROJECT OBJECTIVES & MODELING IMPLICATIONS
+================================================================================
+Objectives Review:
+  A. Classification: Predict whether a property is a 'Good Investment'.
+  B. Regression: Predict estimated property price after 5 years.
+
+1. Five-Year Future-Price Column Check:
+   [FINDING] NO explicit 5-year future price column exists in the raw dataset.
+   Current price columns present: ['Price_in_Lakhs', 'Price_per_SqFt'].
+   Implication: The 5-year future valuation target must be formulated through sound financial
+   and domain-grounded appreciation modeling (e.g., CAGR based on locality/city growth rates,
+   property age, public transport accessibility, and infrastructure metrics).
+
+2. Historical Price / Appreciation Information Check:
+   [FINDING] NO explicit historical price time-series or appreciation rate column is present.
+   However, historical timeline proxies exist: 'Year_Built' (spanning past construction years)
+   and 'Age_of_Property'.
+
+3. Feature Suitability for Investment Classification:
+   The dataset contains strong multidimensional signals across 4 key real estate pillars:
+   - Financial / Valuation: 'Price_in_Lakhs', 'Price_per_SqFt', 'Size_in_SqFt'
+   - Location & Infrastructure: 'State', 'City', 'Locality', 'Public_Transport_Accessibility',
+                                'Nearby_Schools', 'Nearby_Hospitals'
+   - Property Attributes: 'Property_Type', 'BHK', 'Floor_No', 'Total_Floors', 'Age_of_Property',
+                          'Year_Built', 'Facing', 'Furnished_Status'
+   - Market & Quality Signals: 'Amenities', 'Parking_Space', 'Security', 'Owner_Type', 'Availability_Status'
+   Conclusion: Highly viable feature space for constructing an investment viability score/classifier.
+
+4. Data Leakage & Target Construction Concerns:
+   - Mathematical Collinearity: Note that 'Price_per_SqFt' is directly correlated with
+     'Price_in_Lakhs' and 'Size_in_SqFt'. We must examine their exact relation:
+     Sample values comparison:
+     Price: 489.76 Lakhs, Size: 4740.0 SqFt -> Calculated Rs/SqFt: 10332.5 | Raw Price_per_SqFt col: 0.1
+     Price: 195.52 Lakhs, Size: 2364.0 SqFt -> Calculated Rs/SqFt: 8270.7 | Raw Price_per_SqFt col: 0.08
+     Price: 183.79 Lakhs, Size: 3642.0 SqFt -> Calculated Rs/SqFt: 5046.4 | Raw Price_per_SqFt col: 0.05
+     Price: 300.29 Lakhs, Size: 2741.0 SqFt -> Calculated Rs/SqFt: 10955.5 | Raw Price_per_SqFt col: 0.11
+     Price: 182.9 Lakhs, Size: 4823.0 SqFt -> Calculated Rs/SqFt: 3792.2 | Raw Price_per_SqFt col: 0.04
+   - Anomaly Alert: Check floor numbers vs total floors:
+     Records where Floor_No > Total_Floors: 116,304 (46.52%)
+     This indicates potential data generation artifacts or inverted columns that data cleaning
+     must address in subsequent phases.
+   - Leakage Prevention: Any target variable created for 5-year valuation or investment classification
+     must strictly partition train/validation splits before computing regional statistics
+     or synthetic baselines to avoid out-of-fold data leakage.
+================================================================================
+INITIAL INSPECTION COMPLETE.
+================================================================================
