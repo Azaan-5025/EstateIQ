@@ -54,23 +54,25 @@ def apply_estateiq_theme(fig: go.Figure, title: str = "", height: int = 450) -> 
         height=height,
         hoverlabel=dict(
             bgcolor=CHART_PALETTE["deep_forest"],
-            font_size=12,
-            font_color="#F8F7F2",
-            font_family="Plus Jakarta Sans, sans-serif"
+            font=dict(
+                size=12,
+                color="#F8F7F2",
+                family="Plus Jakarta Sans, sans-serif"
+            )
         ),
         xaxis=dict(
             gridcolor=CHART_PALETTE["warm_sand"],
             zerolinecolor=CHART_PALETTE["warm_sand"],
             linecolor=CHART_PALETTE["deep_forest"],
             tickfont=dict(color=CHART_PALETTE["secondary_text"], family="Plus Jakarta Sans, sans-serif"),
-            titlefont=dict(color=CHART_PALETTE["primary_text"], family="Plus Jakarta Sans, sans-serif")
+            title=dict(font=dict(color=CHART_PALETTE["primary_text"], family="Plus Jakarta Sans, sans-serif"))
         ),
         yaxis=dict(
             gridcolor=CHART_PALETTE["warm_sand"],
             zerolinecolor=CHART_PALETTE["warm_sand"],
             linecolor=CHART_PALETTE["deep_forest"],
             tickfont=dict(color=CHART_PALETTE["secondary_text"], family="Plus Jakarta Sans, sans-serif"),
-            titlefont=dict(color=CHART_PALETTE["primary_text"], family="Plus Jakarta Sans, sans-serif")
+            title=dict(font=dict(color=CHART_PALETTE["primary_text"], family="Plus Jakarta Sans, sans-serif"))
         ),
         legend=dict(
             bgcolor="rgba(255, 255, 255, 0.95)",
