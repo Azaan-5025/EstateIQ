@@ -36,10 +36,35 @@ PALETTE_SEQUENCE = [
     "#805AD5"
 ]
 
-def apply_estateiq_theme(fig: go.Figure, title: str = "", height: int = 450) -> go.Figure:
+def apply_estateiq_theme(
+    fig: go.Figure,
+    title: str = "",
+    height: int = 450,
+    xaxis_title: str = None,
+    yaxis_title: str = None
+) -> go.Figure:
     """
     Applies custom luxury ESTATEIQ typography, margins, and borders to any Plotly figure.
     """
+    # Extract existing axis title texts if already present on figure
+    xtitle = xaxis_title
+    if xtitle is None:
+        try:
+            xtitle = fig.layout.xaxis.title.text
+        except Exception:
+            xtitle = ""
+    if xtitle is None:
+        xtitle = ""
+
+    ytitle = yaxis_title
+    if ytitle is None:
+        try:
+            ytitle = fig.layout.yaxis.title.text
+        except Exception:
+            ytitle = ""
+    if ytitle is None:
+        ytitle = ""
+
     fig.update_layout(
         title={
             "text": title,
@@ -50,36 +75,42 @@ def apply_estateiq_theme(fig: go.Figure, title: str = "", height: int = 450) -> 
         paper_bgcolor="#FFFFFF",
         plot_bgcolor="#FFFFFF",
         font={"family": "Plus Jakarta Sans, sans-serif", "size": 12, "color": CHART_PALETTE["primary_text"]},
-        margin=dict(l=40, r=40, t=60, b=40),
+        margin={"l": 40, "r": 40, "t": 60, "b": 40},
         height=height,
-        hoverlabel=dict(
-            bgcolor=CHART_PALETTE["deep_forest"],
-            font=dict(
-                size=12,
-                color="#F8F7F2",
-                family="Plus Jakarta Sans, sans-serif"
-            )
-        ),
-        xaxis=dict(
-            gridcolor=CHART_PALETTE["warm_sand"],
-            zerolinecolor=CHART_PALETTE["warm_sand"],
-            linecolor=CHART_PALETTE["deep_forest"],
-            tickfont=dict(color=CHART_PALETTE["secondary_text"], family="Plus Jakarta Sans, sans-serif"),
-            title=dict(font=dict(color=CHART_PALETTE["primary_text"], family="Plus Jakarta Sans, sans-serif"))
-        ),
-        yaxis=dict(
-            gridcolor=CHART_PALETTE["warm_sand"],
-            zerolinecolor=CHART_PALETTE["warm_sand"],
-            linecolor=CHART_PALETTE["deep_forest"],
-            tickfont=dict(color=CHART_PALETTE["secondary_text"], family="Plus Jakarta Sans, sans-serif"),
-            title=dict(font=dict(color=CHART_PALETTE["primary_text"], family="Plus Jakarta Sans, sans-serif"))
-        ),
-        legend=dict(
-            bgcolor="rgba(255, 255, 255, 0.95)",
-            bordercolor=CHART_PALETTE["warm_sand"],
-            borderwidth=1,
-            font=dict(color=CHART_PALETTE["primary_text"], family="Plus Jakarta Sans, sans-serif")
-        )
+        hoverlabel={
+            "bgcolor": CHART_PALETTE["deep_forest"],
+            "font": {
+                "size": 12,
+                "color": "#F8F7F2",
+                "family": "Plus Jakarta Sans, sans-serif"
+            }
+        },
+        xaxis={
+            "gridcolor": CHART_PALETTE["warm_sand"],
+            "zerolinecolor": CHART_PALETTE["warm_sand"],
+            "linecolor": CHART_PALETTE["deep_forest"],
+            "tickfont": {"color": CHART_PALETTE["secondary_text"], "family": "Plus Jakarta Sans, sans-serif"},
+            "title": {
+                "text": xtitle,
+                "font": {"color": CHART_PALETTE["primary_text"], "family": "Plus Jakarta Sans, sans-serif"}
+            }
+        },
+        yaxis={
+            "gridcolor": CHART_PALETTE["warm_sand"],
+            "zerolinecolor": CHART_PALETTE["warm_sand"],
+            "linecolor": CHART_PALETTE["deep_forest"],
+            "tickfont": {"color": CHART_PALETTE["secondary_text"], "family": "Plus Jakarta Sans, sans-serif"},
+            "title": {
+                "text": ytitle,
+                "font": {"color": CHART_PALETTE["primary_text"], "family": "Plus Jakarta Sans, sans-serif"}
+            }
+        },
+        legend={
+            "bgcolor": "rgba(255, 255, 255, 0.95)",
+            "bordercolor": CHART_PALETTE["warm_sand"],
+            "borderwidth": 1,
+            "font": {"color": CHART_PALETTE["primary_text"], "family": "Plus Jakarta Sans, sans-serif"}
+        }
     )
     return fig
 
